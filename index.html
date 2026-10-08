@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fbf8f5">
+  <title>유나 YUNA | 개인세 AI 버튜버 · 2027 데뷔 예정</title>
+  <meta name="description" content="개인세 AI 버튜버 유나. 6억 원짜리 컴퓨터로 방송합니다. H200 × 8, EPYC 9965 × 2, RAM 1.5 TB. Coming Soon in 2027.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:title" content="유나 YUNA | Coming Soon in 2027">
+  <meta property="og:description" content="개인세 AI 버튜버. 6억 원짜리 컴퓨터로 방송합니다.">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fbf8f5;
+      --pink: #f5e6e8;
+      --ink: #30292d;
+      --muted: #75666d;
+      --accent: #8f485e;
+      --line: #d9cbcd;
+      --gutter: clamp(24px, 6.25vw, 112px);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    h1, h2, p, figure, blockquote, dl, dd { margin: 0; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+    ::selection { background: #ecc6d1; color: var(--ink); }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: min(900px, 100svh);
+      padding: 56px var(--gutter);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0 58% 0 0;
+      background: var(--pink);
+    }
+    .hero-main {
+      display: grid;
+      grid-template-columns: 1.08fr 1fr;
+      grid-template-areas: "visual brand" "visual dialogue" "visual hook" "visual bottom";
+      align-items: start;
+      column-gap: clamp(36px, 5vw, 88px);
+      row-gap: 28px;
+    }
+    .teaser-visual { grid-area: visual; align-self: center; }
+    .teaser-visual img { width: 100%; height: auto; }
+    .teaser-visual figcaption { font-size: 12px; line-height: 1.6; }
+    .brand {
+      grid-area: brand;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    h1 { font-weight: 400; }
+    .latin-name {
+      display: block;
+      margin-left: -.035em;
+      font-family: "Bodoni 72", Didot, "Times New Roman", serif;
+      font-size: clamp(72px, 8.1vw, 128px);
+      font-weight: 400;
+      line-height: .9;
+      letter-spacing: -.065em;
+    }
+    .korean-name { display: block; margin-top: 12px; font-size: 22px; line-height: 1.2; letter-spacing: .12em; }
+    .signature {
+      width: 27%;
+      max-width: 150px;
+      transform: rotate(-8deg);
+    }
+    .dialogue {
+      grid-area: dialogue;
+      padding-block: 8px;
+      color: var(--accent);
+      font-size: clamp(25px, 2.3vw, 34px);
+      font-weight: 400;
+      line-height: 1.65;
+      letter-spacing: -.045em;
+    }
+    .dialogue span { display: block; }
+    .hook-group { grid-area: hook; }
+    .eyebrow { font-size: 14px; font-weight: 500; letter-spacing: .065em; }
+    .hook {
+      margin-top: 8px;
+      font-size: clamp(20px, 1.75vw, 27px);
+      font-weight: 400;
+      line-height: 1.55;
+      letter-spacing: -.045em;
+    }
+    .hook strong { font-weight: 650; }
+    .hook span { display: block; }
+    .hero-bottom {
+      grid-area: bottom;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 28px;
+      padding-top: 8px;
+    }
+    .debut { display: flex; flex-direction: column; }
+    .debut-label { font-size: 13px; letter-spacing: .1em; }
+    .year {
+      font-family: "Bodoni 72", Didot, "Times New Roman", serif;
+      font-size: clamp(56px, 5vw, 72px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -.04em;
+    }
+    .equipment-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 44px;
+      padding: 8px 0;
+      border-bottom: 1px solid currentColor;
+      font-size: 14px;
+      text-decoration: none;
+      transition: color .15s ease;
+    }
+    .equipment-link:hover { color: var(--accent); }
+    .equipment-link span { font-size: 20px; line-height: 1; }
+
+    .equipment {
+      max-width: 1536px;
+      margin-inline: auto;
+      padding: 104px var(--gutter) 96px;
+      scroll-margin-top: 32px;
+    }
+    h2 {
+      font-size: clamp(27px, 3vw, 42px);
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -.055em;
+    }
+    .specs {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr 1fr;
+      margin-top: 36px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .spec { padding: 24px 0 28px; }
+    .spec + .spec { padding-left: 32px; border-left: 1px solid var(--line); }
+    dt { color: var(--muted); font-size: 12px; letter-spacing: .09em; }
+    dd {
+      margin-top: 8px;
+      font-size: clamp(20px, 2.35vw, 34px);
+      font-weight: 500;
+      line-height: 1.3;
+      letter-spacing: -.04em;
+      white-space: nowrap;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    .photos {
+      display: grid;
+      grid-template-columns: 1.65fr 1fr;
+      align-items: start;
+      gap: clamp(28px, 6.25vw, 96px);
+      margin-top: 56px;
+    }
+    .photos img { width: 100%; object-fit: contain; }
+    .rack { margin-top: 96px; }
+    figcaption {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: -.015em;
+    }
+    footer {
+      margin-inline: var(--gutter);
+      padding: 24px 0 32px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .06em;
+    }
+
+    @media (min-width: 1600px) {
+      .hero { max-width: 1680px; margin-inline: auto; }
+    }
+    @media (max-width: 900px) {
+      .hero { min-height: auto; padding-block: 32px 40px; }
+      .hero::before { inset: 0 0 auto; height: min(65vw, 520px); }
+      .hero-main {
+        width: 100%;
+        max-width: 520px;
+        margin-inline: auto;
+        grid-template-columns: 1fr;
+        grid-template-areas: "brand" "visual" "dialogue" "hook" "bottom";
+        gap: 24px;
+      }
+      .latin-name { font-size: clamp(68px, 17vw, 88px); }
+      .korean-name { margin-top: 6px; font-size: 16px; }
+      .signature { width: 30%; }
+      .dialogue { padding-block: 0; font-size: clamp(23px, 5.6vw, 29px); }
+      .eyebrow { font-size: 13px; }
+      .hook { margin-top: 6px; font-size: 22px; }
+      .hero-bottom { padding-top: 4px; }
+      .debut-label { font-size: 11px; letter-spacing: .055em; }
+      .year { font-size: 60px; }
+      .equipment-link { gap: 24px; font-size: 12px; }
+    }
+    @media (max-width: 760px) {
+      .equipment { padding-top: 64px; padding-bottom: 56px; }
+      .specs { grid-template-columns: 1fr; margin-top: 24px; }
+      .spec { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 18px 0; }
+      .spec + .spec { padding: 18px 0; border-left: 0; border-top: 1px solid var(--line); }
+      dd { margin-top: 0; font-size: clamp(20px, 4vw, 28px); }
+      .photos { grid-template-columns: 1.35fr 1fr; gap: 24px; margin-top: 32px; }
+      .rack { margin-top: 56px; }
+      figcaption { font-size: 12px; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding-top: 24px; padding-bottom: 32px; }
+      .hero-bottom { gap: 16px; }
+      .equipment-link { gap: 14px; }
+      .photos { grid-template-columns: 1fr; gap: 32px; }
+      .rack { width: 74%; margin-top: 0; margin-left: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .equipment-link { transition: none; }
+    }
+    @media (forced-colors: active) {
+      .hero::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero" aria-labelledby="yuna-name">
+      <div class="hero-main">
+        <div class="brand">
+          <h1 id="yuna-name"><span class="latin-name" lang="en">YUNA</span><span class="korean-name">유나</span></h1>
+          <img class="signature" src="imgs/signature.png" width="1674" height="939" alt="유나 서명">
+        </div>
+        <figure class="teaser-visual">
+          <img src="imgs/yuna-temporary.png" width="1254" height="1254" alt="분홍색 리본을 달고 윙크하는 유나의 임시 이미지" fetchpriority="high" aria-describedby="temporary-image-note">
+          <figcaption id="temporary-image-note">임시 이미지. 일러스트 준비중.</figcaption>
+        </figure>
+        <blockquote class="dialogue">
+          <p>인간에 대해…<br>더 알아가고 싶어.<span>나랑 놀아줄래?</span></p>
+        </blockquote>
+        <div class="hook-group">
+          <p class="eyebrow">개인세 AI 버튜버</p>
+          <p class="hook"><strong>6억 원짜리 컴퓨터로</strong> <span>방송합니다.</span></p>
+        </div>
+        <div class="hero-bottom">
+          <p class="debut" lang="en"><span class="debut-label">Coming Soon in</span> <span class="year">2027</span></p>
+          <a class="equipment-link" href="#equipment">방송 장비 보기 <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="equipment" id="equipment" aria-labelledby="equipment-title">
+      <h2 id="equipment-title">방송 장비</h2>
+      <dl class="specs">
+        <div class="spec"><dt>GPU</dt><dd>H200 × 8</dd></div>
+        <div class="spec"><dt>CPU</dt><dd>EPYC 9965 × 2</dd></div>
+        <div class="spec"><dt>RAM</dt><dd>1.5 TB</dd></div>
+      </dl>
+      <div class="photos">
+        <figure>
+          <img src="imgs/server-h200.jpg" width="1280" height="1422" alt="덮개가 열린 서버 내부에 장착된 H200 GPU" loading="lazy" decoding="async">
+          <figcaption>H200 서버 내부</figcaption>
+        </figure>
+        <figure class="rack">
+          <img src="imgs/rack.jpg" width="1280" height="2896" alt="서버와 네트워크 장비가 설치된 랙의 정면" loading="lazy" decoding="async">
+          <figcaption>서버 랙 전경</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+  <footer>© 2026 YUNA</footer>
+</body>
+</html>
