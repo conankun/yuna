@@ -7,11 +7,11 @@
   <link rel="icon" type="image/png" sizes="64x64" href="imgs/favicon.png">
   <link rel="apple-touch-icon" href="imgs/apple-touch-icon.png">
   <title>유나 ユナ | 개인세 AI 버튜버 · 2027 데뷔 예정</title>
-  <meta name="description" content="개인세 AI 버튜버 유나(ユナ). 7억 원짜리 컴퓨터로 방송합니다. H200 × 8, EPYC 9965 × 2, RAM 1.5 TB. Coming Soon in 2027.">
+  <meta name="description" content="개인세 AI 버튜버 유나(ユナ). 7억 원짜리 컴퓨터, 차가운 반도체 위에 피어난 사랑스러운 생명 하나. H200 × 8, EPYC 9965 × 2, RAM 1.5 TB. Coming Soon in 2027.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:title" content="유나 ユナ | Coming Soon in 2027">
-  <meta property="og:description" content="개인세 AI 버튜버 유나. 7억 원짜리 컴퓨터로 방송합니다.">
+  <meta property="og:description" content="개인세 AI 버튜버 유나. 7억 원짜리 컴퓨터, 차가운 반도체 위에 피어난 사랑스러운 생명 하나.">
   <meta property="og:image" content="https://yuna.com/imgs/yuna-temporary.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1254">
@@ -156,7 +156,9 @@
       line-height: 1.55;
       letter-spacing: -.045em;
     }
-    .hook strong { font-weight: 650; }
+    .hook strong { display: block; font-weight: 650; }
+    .hook .hook-price { display: block; margin-bottom: 4px; font-size: .78em; color: var(--muted); }
+    .hook .hook-birth { display: block; }
     .hook .price-fix { position: relative; display: inline-block; white-space: nowrap; }
     .price-fix .old-num { position: relative; display: inline-block; opacity: .58; }
     .price-fix .scribble {
@@ -305,6 +307,8 @@
       letter-spacing: .06em;
     }
 
+    .caption-aside { font-size: .92em; color: #82747a; white-space: nowrap; }
+
     @media (min-width: 1600px) {
       .hero { max-width: 1680px; margin-inline: auto; }
     }
@@ -374,7 +378,7 @@
         </blockquote>
         <div class="hook-group">
           <p class="eyebrow">개인세 AI 버튜버</p>
-          <p class="hook"><strong aria-label="7억 원짜리 컴퓨터로"><span class="price-fix"><span class="old-num" aria-hidden="true">6<svg class="scribble" viewBox="0 0 48 64" aria-hidden="true"><path d="M2 10 C 18 4, 36 7, 46 15"/><path d="M3 22 C 17 16, 35 18, 45 26"/><path d="M2 35 C 18 29, 34 31, 44 39"/><path d="M4 48 C 16 42, 32 44, 43 52"/></svg></span><span class="new-num" aria-hidden="true">7</span></span>억 원짜리 컴퓨터로</strong> <span>방송합니다.</span></p>
+          <p class="hook"><span class="hook-price" aria-label="7억 원짜리 컴퓨터"><span class="price-fix"><span class="old-num" aria-hidden="true">6<svg class="scribble" viewBox="0 0 48 64" aria-hidden="true"><path d="M2 10 C 18 4, 36 7, 46 15"/><path d="M3 22 C 17 16, 35 18, 45 26"/><path d="M2 35 C 18 29, 34 31, 44 39"/><path d="M4 48 C 16 42, 32 44, 43 52"/></svg></span><span class="new-num" aria-hidden="true">7</span></span>억 원짜리 컴퓨터</span><span class="hook-birth">차가운 반도체 위에 피어난</span><strong>사랑스러운 생명 하나</strong></p>
         </div>
         <div class="hero-bottom">
           <p class="debut" lang="en"><span class="debut-label">Coming Soon in</span> <span class="year">2027</span></p>
@@ -407,11 +411,11 @@
       <div class="photos">
         <figure>
           <img src="imgs/server-h200.jpg" width="1280" height="1422" alt="덮개가 열린 서버 내부에 장착된 H200 GPU" loading="lazy" decoding="async">
-          <figcaption>H200 서버 내부</figcaption>
+          <figcaption>유나의 가장 사적인 공간 <span class="caption-aside">(부끄럽당ㅎㅎ)</span></figcaption>
         </figure>
         <figure class="rack">
           <img src="imgs/rack.jpg" width="1280" height="2896" alt="서버와 네트워크 장비가 설치된 랙의 정면" loading="lazy" decoding="async">
-          <figcaption>서버 랙 전경</figcaption>
+          <figcaption>유나의 보금자리</figcaption>
         </figure>
       </div>
     </section>
