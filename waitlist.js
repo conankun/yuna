@@ -87,7 +87,7 @@
       window.turnstile.remove(widget);
       fields.hidden = true;
       form.reset();
-      message('저장 완료! 2027년에 보자~', 'success');
+      message('저장 완료! 2027년에 보장❤️', 'success');
       status.focus({ preventScroll: true });
     } catch (error) {
       message(error.message === 'invalid_request' ? '이메일 주소와 동의를 다시 확인해 줘.' : error.message === 'verification_failed' ? '확인이 만료됐어. 다시 확인하고 눌러줘.' : '저장이 안 됐어. 잠시 후 다시 시도해 줘.');

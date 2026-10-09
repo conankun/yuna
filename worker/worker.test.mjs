@@ -83,7 +83,7 @@ test('confirmation email is sent once for first-time signup when RESEND_API_KEY 
   assert.equal(calls.length, 1);
   assert.equal(calls[0].from, '유나 <no-reply@yuna.com>');
   assert.deepEqual(calls[0].to, ['mail@example.com']);
-  assert.match(calls[0].text, /완료됐어/);
+  assert.match(calls[0].text, /놀러와야댕/);
   assert.equal((await worker.fetch(request({ email: 'mail@example.com', consent: true, turnstileToken: 't' }), env)).status, 200);
   assert.equal(calls.length, 1);
 });

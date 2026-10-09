@@ -42,25 +42,52 @@ async function readBoundedJson(request) {
 }
 
 const CONFIRM_FROM = '유나 <no-reply@yuna.com>';
-const CONFIRM_SUBJECT = '유나 방송 시작 알림 신청 완료!';
-const confirmText = email => `유나 방송 시작 알림 신청이 완료됐어!
-방송 켜지면 ${email} 로 알려줄게.
-2027년에 보자~
+const CONFIRM_SUBJECT = '유나 데뷔 알림 신청 완료됐어용 🎀';
+const confirmText = email => `오빠앙(언니이)~~ 나야, 유나! 🎀
+데뷔 알림 신청해줘서 고마워 ㅎㅎ
+방송 시작하면 메일로 알려줄게!!!
+유나 설레게 해놓고 노쇼 하면 안된다?!! 꼭 놀러와야댕!!!
+2027년에 보장❤️
+참고로 답장은 못 받는 알림 전용 메일이야 ㅎㅎ
 
 — 유나 (yuna.com)`;
+
+const confirmHtml = email => `<!DOCTYPE html>
+<html><body style="margin:0;padding:24px 12px;background:#fbf8f5;font-family:'Apple SD Gothic Neo','Malgun Gothic',sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fbf8f5;"><tr><td align="center">
+  <table role="presentation" width="520" cellpadding="0" cellspacing="0" style="max-width:520px;width:100%;background:#fffdfc;border:3px solid #9e8e97;border-radius:14px;overflow:hidden;">
+    <tr><td style="padding:0;"><img src="https://yuna.com/imgs/ribbon-badge.png" width="514" alt="" style="display:block;width:100%;height:auto;"></td></tr>
+    <tr><td style="padding:22px 32px 6px;text-align:center;">
+      <div style="font-size:12px;letter-spacing:3px;color:#9e8e97;">INVITATION</div>
+    </td></tr>
+    <tr><td style="padding:6px 34px 10px;color:#8f485e;font-size:19px;line-height:1.8;">
+      오빠앙(언니이)~~ 나야, 유나! 🎀<br>
+      데뷔 알림 신청해줘서 고마워 ㅎㅎ<br>
+      방송 시작하면 메일로 알려줄게!!!<br>
+      유나 설레게 해놓고 <strong style="font-size:21px;">노쇼 하면 안된다?!!</strong><br>
+      꼭 놀러와야댕!!! 2027년에 보장❤️
+      <div style="font-size:13px;color:#9e8e97;padding-top:12px;">참고로 답장은 못 받는 알림 전용 메일이야 ㅎㅎ</div>
+    </td></tr>
+    <tr><td style="padding:8px 34px 26px;border-top:1px solid #e8dde2;">
+      <img src="https://yuna.com/imgs/signature.png" width="150" alt="유나 서명" style="display:block;padding-top:14px;">
+    </td></tr>
+  </table>
+</td></tr></table>
+</body></html>`;
 
 // Best-effort confirmation mail. Missing key or send failure never fails the
 // signup itself. Sent only for first-time registrations (see caller).
 async function sendConfirmation(env, email) {
   if (!env.RESEND_API_KEY) return;
   try {
-    await fetch('https://api.resend.com/emails', {
+    const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ from: CONFIRM_FROM, to: [email], subject: CONFIRM_SUBJECT, text: confirmText(email) }),
+      body: JSON.stringify({ from: CONFIRM_FROM, to: [email], subject: CONFIRM_SUBJECT, text: confirmText(email), html: confirmHtml(email) }),
       signal: AbortSignal.timeout(8000),
     });
-  } catch { /* signup already succeeded */ }
+    if (!res.ok) console.error('resend422', 'to-len:', email.length, 'to-ascii-valid:', /^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/.test(email), 'to-odd-chars:', JSON.stringify([...email].filter(c => { const n = c.charCodeAt(0); return n > 126 || n < 33; })), 'body:', (await res.text().catch(() => '')).slice(0, 160));
+  } catch (error) { console.error('resend-send-error', String(error && error.message || error).slice(0, 120)); }
 }
 
 export default {
