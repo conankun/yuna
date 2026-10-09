@@ -71,6 +71,32 @@ test('Cloudflare-flagged testing-key response verifies without action/hostname (
   assert.equal(result.status, 200); assert.equal(writes.length, 1);
 });
 
+test('confirmation email is sent once for first-time signup when RESEND_API_KEY exists', async () => {
+  const { env } = fixture();
+  const calls = [];
+  globalThis.fetch = async (url, init) => {
+    if (String(url).includes('resend.com')) { calls.push(JSON.parse(init.body)); return Response.json({ id: 'x' }); }
+    return Response.json({ success: true, hostname: 'example.test', action: 'subscribe' });
+  };
+  env.RESEND_API_KEY = 're_test';
+  assert.equal((await worker.fetch(request({ email: 'mail@example.com', consent: true, turnstileToken: 't' }), env)).status, 200);
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].from, '유나 <no-reply@yuna.com>');
+  assert.deepEqual(calls[0].to, ['mail@example.com']);
+  assert.match(calls[0].text, /완료됐어/);
+  assert.equal((await worker.fetch(request({ email: 'mail@example.com', consent: true, turnstileToken: 't' }), env)).status, 200);
+  assert.equal(calls.length, 1);
+});
+test('missing or failing confirmation email never fails the signup', async () => {
+  const { env } = fixture();
+  globalThis.fetch = async (url) => String(url).includes('resend.com') ? new Response('boom', { status: 500 }) : Response.json({ success: true, hostname: 'example.test', action: 'subscribe' });
+  env.RESEND_API_KEY = 're_test';
+  assert.equal((await worker.fetch(request(), env)).status, 200);
+  delete env.RESEND_API_KEY;
+  globalThis.fetch = async (url) => { if (String(url).includes('resend.com')) throw new Error('unexpected call'); return Response.json({ success: true, hostname: 'example.test', action: 'subscribe' }); };
+  assert.equal((await worker.fetch(request(), env)).status, 200);
+});
+
 test('verification network/server/JSON and storage failures do not return success', async () => {
   const { env, writes } = fixture();
   for (const mock of [async () => { throw new Error('network'); }, async () => new Response('', { status: 500 }), async () => new Response('invalid')]) {
