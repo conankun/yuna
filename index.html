@@ -80,7 +80,7 @@
       isolation: isolate;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: min(900px, 100svh);
       padding: 56px var(--gutter);
     }
@@ -94,7 +94,7 @@
     .hero-main {
       display: grid;
       grid-template-columns: 1.08fr 1fr;
-      grid-template-areas: "visual brand" "visual dialogue" "visual hook" "visual bottom";
+      grid-template-areas: "visual brand" "visual dialogue" "visual hook" "visual bottom" ". signup";
       align-items: start;
       column-gap: clamp(36px, 5vw, 88px);
       row-gap: 28px;
@@ -190,6 +190,34 @@
     .equipment-link:hover { color: var(--accent); }
     .equipment-link span { font-size: 20px; line-height: 1; }
 
+    .signup { grid-area: signup; max-width: 520px; }
+    .signup-copy { color: var(--accent); font-size: 19px; line-height: 1.65; letter-spacing: -.035em; }
+    .signup-copy span { display: inline-block; }
+    .signup-copy span::before { content: " "; }
+    .signup-row { display: flex; gap: 10px; margin-top: 16px; }
+    .signup-row input { min-width: 0; width: 100%; flex: 1; height: 48px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 6px; background: #fffaf9; color: var(--ink); font: inherit; font-size: 16px; }
+    .signup-row input::placeholder { color: var(--muted); opacity: 1; }
+    .signup button { flex: 0 0 auto; height: 48px; padding: 10px 20px; border: 1px solid var(--accent); border-radius: 6px; background: var(--accent); color: white; font: inherit; cursor: pointer; min-height: 48px; }
+    .signup button:hover { background: #783b4f; }
+    .signup button:disabled { cursor: wait; opacity: .6; }
+    .signup :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .signup-consent { display: flex; align-items: flex-start; gap: 8px; min-height: 44px; padding-block: 10px; margin-top: 4px; color: var(--muted); font-size: 14px; line-height: 1.6; cursor: pointer; }
+    .signup-consent input { flex: 0 0 auto; margin: 2px 0 0; width: 18px; height: 18px; accent-color: var(--accent); }
+    .signup details { color: var(--muted); font-size: 14px; margin-left: 0; }
+    .signup summary { cursor: pointer; width: fit-content; min-height: 44px; padding-block: 10px; display: flex; align-items: center; gap: 8px; list-style: none; }
+    .signup summary::-webkit-details-marker { display: none; }
+    .signup summary::before { content: ""; flex: 0 0 18px; width: 18px; height: 18px; background: currentColor; clip-path: polygon(38% 22%, 68% 50%, 38% 78%, 30% 70%, 52% 50%, 30% 30%); }
+    .signup details[open] summary::before { transform: rotate(90deg); }
+    .signup details p { margin: 6px 0 0 26px; }
+    .signup-status { margin-top: 12px; font-size: 14px; color: var(--accent); }
+    .signup-status:empty { display: none; }
+    .signup-status[data-state="success"] { padding: 16px 0; font-size: 20px; }
+    .signup-verification:not(:empty) { margin-top: 12px; }
+    @media (max-width: 480px) {
+      .signup-copy { font-size: 18px; }
+      .signup button { padding-inline: 16px; }
+    }
+
     .equipment {
       max-width: 1536px;
       margin-inline: auto;
@@ -256,7 +284,7 @@
         max-width: 520px;
         margin-inline: auto;
         grid-template-columns: 1fr;
-        grid-template-areas: "brand" "visual" "dialogue" "hook" "bottom";
+        grid-template-areas: "brand" "visual" "dialogue" "hook" "bottom" "signup";
         gap: 24px;
       }
       .latin-name { font-size: clamp(68px, 17vw, 88px); }
@@ -320,6 +348,20 @@
           <p class="debut" lang="en"><span class="debut-label">Coming Soon in</span> <span class="year">2027</span></p>
           <a class="equipment-link" href="#equipment">방송 장비 보기 <span aria-hidden="true">↓</span></a>
         </div>
+        <form method="post" class="signup" id="signup" aria-labelledby="signup-copy">
+          <p class="signup-copy" id="signup-copy">방송 켜지면 메일로 알려줄게!<span>놀러 올 거지?</span></p>
+          <div id="signup-fields">
+            <div class="signup-row">
+              <input id="signup-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" aria-label="이메일 주소" placeholder="이메일 주소" required>
+              <button type="submit" disabled>알려줘!</button>
+            </div>
+            <label class="signup-consent"><input name="consent" type="checkbox" required><span>방송 시작 알림을 위한 이메일 수집·이용에 동의합니다.</span></label>
+            <details><summary>수집·이용 안내</summary><p>수집 항목: 이메일 주소<br>이용 목적: 유나 방송 시작 알림<br>보관 기간: 2027년 12월 31일까지<br>동의를 거부할 수 있으며, 동의하지 않으면 알림을 신청할 수 없습니다.</p></details>
+            <div class="signup-verification" id="signup-verification"></div>
+          </div>
+          <p class="signup-status" id="signup-status" role="status" aria-live="polite" tabindex="-1"></p>
+          <noscript><p class="signup-status">이메일 알림 신청에는 JavaScript가 필요합니다.</p></noscript>
+        </form>
       </div>
     </section>
 
@@ -343,5 +385,7 @@
     </section>
   </main>
   <footer>© 2026 YUNA</footer>
+  <script src="waitlist-config.js" defer></script>
+  <script src="waitlist.js" defer></script>
 </body>
 </html>

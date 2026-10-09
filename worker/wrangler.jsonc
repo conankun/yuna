@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "yuna-waitlist",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-08",
+  "workers_dev": true,
+  "observability": { "enabled": false },
+  "kv_namespaces": [
+    { "binding": "WAITLIST", "id": "8a59e372493e47ea90db7e70a09af8d0" }
+  ],
+  "vars": {
+    "ALLOWED_ORIGINS": "https://yuna.com",
+    "TURNSTILE_HOSTNAMES": "yuna.com",
+    "RETENTION_END": "2028-01-01T00:00:00Z",
+    "CONSENT_VERSION": "2026-10-08"
+  }
+}

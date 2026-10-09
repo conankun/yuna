@@ -1,0 +1,6 @@
+# Local-only working files
+AGENTS.md
+worker/.dev.vars
+worker/.wrangler/
+node_modules/
+.DS_Store
