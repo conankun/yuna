@@ -6,12 +6,12 @@
   <meta name="theme-color" content="#fbf8f5">
   <link rel="icon" type="image/png" sizes="64x64" href="imgs/favicon.png">
   <link rel="apple-touch-icon" href="imgs/apple-touch-icon.png">
-  <title>유나 YUNA | 개인세 AI 버튜버 · 2027 데뷔 예정</title>
-  <meta name="description" content="개인세 AI 버튜버 유나. 6억 원짜리 컴퓨터로 방송합니다. H200 × 8, EPYC 9965 × 2, RAM 1.5 TB. Coming Soon in 2027.">
+  <title>유나 ユナ | 개인세 AI 버튜버 · 2027 데뷔 예정</title>
+  <meta name="description" content="개인세 AI 버튜버 유나(ユナ). 6억 원짜리 컴퓨터로 방송합니다. H200 × 8, EPYC 9965 × 2, RAM 1.5 TB. Coming Soon in 2027.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ko_KR">
-  <meta property="og:title" content="유나 YUNA | Coming Soon in 2027">
-  <meta property="og:description" content="개인세 AI 버튜버. 6억 원짜리 컴퓨터로 방송합니다.">
+  <meta property="og:title" content="유나 ユナ | Coming Soon in 2027">
+  <meta property="og:description" content="개인세 AI 버튜버 유나. 6억 원짜리 컴퓨터로 방송합니다.">
   <meta property="og:image" content="https://yuna.com/imgs/yuna-temporary.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1254">
@@ -20,7 +20,32 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://yuna.com/imgs/yuna-temporary.png">
   <meta name="twitter:image:alt" content="유나 임시 이미지. 일러스트 준비중.">
+  <link rel="preload" href="fonts/Mali-Medium.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/GowunDodum-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/ZenMaruGothic-name.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+    /* Name subset: ユナ. Regenerate if the Japanese text changes. */
+    @font-face {
+      font-family: "Zen Maru Gothic";
+      src: url("fonts/ZenMaruGothic-name.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Gowun Dodum";
+      src: url("fonts/GowunDodum-Regular.woff2") format("woff2");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Mali";
+      src: url("fonts/Mali-Medium.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+    }
     :root {
       color-scheme: light;
       --paper: #fbf8f5;
@@ -38,7 +63,7 @@
       margin: 0;
       background: var(--paper);
       color: var(--ink);
-      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
+      font-family: "Gowun Dodum", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
       -webkit-font-smoothing: antialiased;
       line-height: 1.6;
       word-break: keep-all;
@@ -76,7 +101,7 @@
     }
     .teaser-visual { grid-area: visual; align-self: center; }
     .teaser-visual img { width: 100%; height: auto; }
-    .teaser-visual figcaption { font-size: 12px; line-height: 1.6; }
+    .teaser-visual figcaption { font-size: 13px; line-height: 1.6; }
     .brand {
       grid-area: brand;
       position: relative;
@@ -86,14 +111,25 @@
       gap: 16px;
     }
     h1 { font-weight: 400; }
+    .japanese-name {
+      display: block;
+      margin-bottom: 16px;
+      padding-top: 12px;
+      color: var(--accent);
+      font-family: "Zen Maru Gothic", sans-serif;
+      font-size: 30px;
+      line-height: 1.5;
+      letter-spacing: .16em;
+    }
+    .japanese-name { white-space: nowrap; }
     .latin-name {
       display: block;
       margin-left: -.035em;
-      font-family: "Bodoni 72", Didot, "Times New Roman", serif;
+      font-family: "Mali", sans-serif;
       font-size: clamp(72px, 8.1vw, 128px);
-      font-weight: 400;
-      line-height: .9;
-      letter-spacing: -.065em;
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -.045em;
     }
     .korean-name { display: block; margin-top: 12px; font-size: 22px; line-height: 1.2; letter-spacing: .12em; }
     .signature {
@@ -133,9 +169,9 @@
     .debut { display: flex; flex-direction: column; }
     .debut-label { font-size: 13px; letter-spacing: .1em; }
     .year {
-      font-family: "Bodoni 72", Didot, "Times New Roman", serif;
+      font-family: "Mali", sans-serif;
       font-size: clamp(56px, 5vw, 72px);
-      font-weight: 400;
+      font-weight: 500;
       line-height: 1.12;
       letter-spacing: -.04em;
     }
@@ -224,7 +260,8 @@
         gap: 24px;
       }
       .latin-name { font-size: clamp(68px, 17vw, 88px); }
-      .korean-name { margin-top: 6px; font-size: 16px; }
+      .japanese-name { font-size: 24px; margin-bottom: 12px; }
+      .korean-name { margin-top: 10px; font-size: 16px; }
       .signature { width: 30%; }
       .dialogue { padding-block: 0; font-size: clamp(23px, 5.6vw, 29px); }
       .eyebrow { font-size: 13px; }
@@ -242,7 +279,7 @@
       dd { margin-top: 0; font-size: clamp(20px, 4vw, 28px); }
       .photos { grid-template-columns: 1.35fr 1fr; gap: 24px; margin-top: 32px; }
       .rack { margin-top: 56px; }
-      figcaption { font-size: 12px; }
+      figcaption { font-size: 13px; }
     }
     @media (max-width: 480px) {
       .hero { padding-top: 24px; padding-bottom: 32px; }
@@ -265,7 +302,7 @@
     <section class="hero" aria-labelledby="yuna-name">
       <div class="hero-main">
         <div class="brand">
-          <h1 id="yuna-name"><span class="latin-name" lang="en">YUNA</span><span class="korean-name">유나</span></h1>
+          <h1 id="yuna-name"><span class="japanese-name" lang="ja">ユナ</span><span class="latin-name" lang="en">Yuna</span><span class="korean-name">유나</span></h1>
           <img class="signature" src="imgs/signature.png" width="1674" height="939" alt="유나 서명">
         </div>
         <figure class="teaser-visual">
