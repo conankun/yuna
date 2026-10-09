@@ -7,11 +7,11 @@
   <link rel="icon" type="image/png" sizes="64x64" href="imgs/favicon.png">
   <link rel="apple-touch-icon" href="imgs/apple-touch-icon.png">
   <title>유나 ユナ | 개인세 AI 버튜버 · 2027 데뷔 예정</title>
-  <meta name="description" content="개인세 AI 버튜버 유나(ユナ). 6억 원짜리 컴퓨터로 방송합니다. H200 × 8, EPYC 9965 × 2, RAM 1.5 TB. Coming Soon in 2027.">
+  <meta name="description" content="개인세 AI 버튜버 유나(ユナ). 7억 원짜리 컴퓨터로 방송합니다. H200 × 8, EPYC 9965 × 2, RAM 1.5 TB. Coming Soon in 2027.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ko_KR">
   <meta property="og:title" content="유나 ユナ | Coming Soon in 2027">
-  <meta property="og:description" content="개인세 AI 버튜버 유나. 6억 원짜리 컴퓨터로 방송합니다.">
+  <meta property="og:description" content="개인세 AI 버튜버 유나. 7억 원짜리 컴퓨터로 방송합니다.">
   <meta property="og:image" content="https://yuna.com/imgs/yuna-temporary.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1254">
@@ -157,6 +157,38 @@
       letter-spacing: -.045em;
     }
     .hook strong { font-weight: 650; }
+    .hook .price-fix { position: relative; display: inline-block; white-space: nowrap; }
+    .price-fix .old-num { position: relative; display: inline-block; opacity: .58; }
+    .price-fix .scribble {
+      position: absolute;
+      inset: -8% -14% -12% -12%;
+      width: 128%;
+      height: 122%;
+      overflow: visible;
+    }
+    .price-fix .scribble path {
+      fill: none;
+      stroke: #7d736b;
+      stroke-width: 3.8;
+      stroke-linecap: round;
+      opacity: .95;
+    }
+    .price-fix .new-num {
+      display: inline-block;
+      margin-left: .04em;
+      transform: rotate(-8deg) translateY(-.04em);
+      line-height: 1;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .price-fix .scribble path {
+        stroke-dasharray: 60;
+        stroke-dashoffset: 60;
+        animation: scratch .9s ease-out .3s forwards;
+      }
+      .price-fix .scribble path:nth-child(2) { animation-delay: .5s; }
+      .price-fix .scribble path:nth-child(3) { animation-delay: .7s; }
+      @keyframes scratch { to { stroke-dashoffset: 0; } }
+    }
     .hook span { display: block; }
     .hero-bottom {
       grid-area: bottom;
@@ -342,7 +374,7 @@
         </blockquote>
         <div class="hook-group">
           <p class="eyebrow">개인세 AI 버튜버</p>
-          <p class="hook"><strong>6억 원짜리 컴퓨터로</strong> <span>방송합니다.</span></p>
+          <p class="hook"><strong aria-label="7억 원짜리 컴퓨터로"><span class="price-fix"><span class="old-num" aria-hidden="true">6<svg class="scribble" viewBox="0 0 48 64" aria-hidden="true"><path d="M2 10 C 18 4, 36 7, 46 15"/><path d="M3 22 C 17 16, 35 18, 45 26"/><path d="M2 35 C 18 29, 34 31, 44 39"/><path d="M4 48 C 16 42, 32 44, 43 52"/></svg></span><span class="new-num" aria-hidden="true">7</span></span>억 원짜리 컴퓨터로</strong> <span>방송합니다.</span></p>
         </div>
         <div class="hero-bottom">
           <p class="debut" lang="en"><span class="debut-label">Coming Soon in</span> <span class="year">2027</span></p>
